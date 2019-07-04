@@ -1,7 +1,20 @@
-//Write a Function to Get a Document by its Id 
-//Translate the whole Document to Kannada
-//Save the Transalted Content in New Docuemnt and Save it in the Same Folder of the Original Document
-//SAve With Orign File Name with Kannada 
+function onOpen() {
+  var ui = DocumentApp.getUi();
+  // Or DocumentApp or FormApp.
+  ui.createMenu('Custom Menu')
+      .addItem('First item', 'openDialog')
+      .addSeparator()
+      .addToUi();
+}
+
+
+
+function openDialog() {
+  var html = HtmlService.createHtmlOutputFromFile('sidebar');
+  DocumentApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+      .showModalDialog(html, 'Dialog title');
+}
+
 function Translator() {
   //Make File Browser that Gets (only Documetns) and  get Document ID
   var Doc= DocumentApp.openById("1o758CnxfYVP31I3j2ZKVATADQHhyvkSB8uTDCDcG2DA");
